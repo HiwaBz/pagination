@@ -33,14 +33,14 @@ if(currentList.length) {
 
 pageElement.innerHTML = page
 //button ui : 
-if(currentList.at(-1) === list.at(-1)) btnnext.style.display = "none";
+if(currentList.at(-1) === list.at(-1)) btnNext.style.display = "none";
 else {
-    btnnext.style.display = "block"
+    btnNext.style.display = "block"
 }
 
-if(currentList.at(1) === list.at(1)) btnprevious.style.display = "none";
+if(currentList.at(1) === list.at(1)) btnPrevious.style.display = "none";
 else {
-    btnprevious.style.display = "block"
+    btnPrevious.style.display = "block"
 }
 }
 
@@ -48,11 +48,11 @@ else {
 window.addEventListener('load' , function(){
     generateAndInsertHtml()
 })
-btnnext.addEventListener('click' , function(){
+btnNext.addEventListener('click' , function(){
     page++;
     generateAndInsertHtml();
 })
-btnprevious.addEventListener('click' , function(){
+btnPrevious.addEventListener('click' , function(){
     page--;
     generateAndInsertHtml()
 })
