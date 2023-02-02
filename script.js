@@ -32,27 +32,28 @@ if(currentList.length) {
 }
 
 pageElement.innerHTML = page
-//button ui : 
+//button ui : for nest btn :
 if(currentList.at(-1) === list.at(-1)) btnNext.style.display = "none";
-else {
-    btnNext.style.display = "block"
-}
-
+if(currentList.at(-1) !== list.at(-1)) btnNext.style.display = "block";
+// for Previous btn :
 if(currentList.at(1) === list.at(1)) btnPrevious.style.display = "none";
-else {
-    btnPrevious.style.display = "block"
-}
+if(currentList.at(1) !== list.at(1)) btnPrevious.style.display = "block";
 }
 
-//Event listener :
+//Event listeners :
 window.addEventListener('load' , function(){
     generateAndInsertHtml()
 })
-btnNext.addEventListener('click' , function(){
-    page++;
-    generateAndInsertHtml();
-})
-btnPrevious.addEventListener('click' , function(){
-    page--;
-    generateAndInsertHtml()
-})
+
+const btnArrow = [btnNext, btnPrevious]
+btnArrow.forEach(btnn => {
+    btnn.addEventListener('click' , function(e){
+        if(e.target.getAttribute('class') === 'next'){
+            page++;
+                };
+        if(e.target.getAttribute('class') === 'previous') {
+            page--;
+        }
+        generateAndInsertHtml();
+    })
+});
